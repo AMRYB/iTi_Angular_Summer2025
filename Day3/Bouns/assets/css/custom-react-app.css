@@ -1,0 +1,89 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* Browny visual tweaks */
+.navbar-brand{color:#B636FF !important;font-weight:700;letter-spacing:1px;}
+.navbar-brand:hover,.navbar-brand:focus{color:#B636FF !important;}
+
+.menu-ui-design .navbar-nav>li>a,
+.navbar-nav>li>a{ text-transform: uppercase; font-size: 12px; letter-spacing: 1px; }
+
+.welcome-hero .header-text h2{
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: 1px;
+}
+
+.welcome-hero .header-text h2 span{ color:#B636FF; }
+
+.btn-browny{
+    display:inline-block;
+    background:#B636FF;
+    color:#fff !important;
+    padding:12px 26px;
+    text-decoration:none;
+    border:0;
+    border-radius:6px;
+    box-shadow: 0 8px 20px rgba(182,54,255,0.35);
+    
+}
+.btn-browny:hover{ transform: translateY(-1px); box-shadow: 0 10px 24px rgba(182,54,255,0.4); }
+.btn-browny:active{ transform: translateY(0); box-shadow: 0 6px 16px rgba(182,54,255,0.3); }
+
+
+
+/* === Browny Nav Items (exact set & uppercase) === */
+.menu-ui-design .navbar-nav>li>a,
+.navbar-nav>li>a{ text-transform: uppercase; font-size: 12px; letter-spacing: 1px;}
+
+/* === Hero Button to match screenshot === */
+.btn-hero{
+    display:inline-block;
+    background:#B636FF;
+    color:#fff !important;
+    font-weight:600;
+    text-decoration:none;
+    border:0;
+    border-radius:6px;
+    box-shadow:0 10px 24px rgba(182,54,255,0.45);
+    
+}
+.btn-hero:hover{ transform: translateY(-1px); box-shadow:0 12px 28px rgba(182,54,255,0.5); opacity:.95; }
+.btn-hero:active{ transform: translateY(0); box-shadow:0 8px 20px rgba(182,54,255,0.4); }
+
+/* Center hero text spacing like screenshot */
+.welcome-hero .header-text p{ letter-spacing:1px; }
+

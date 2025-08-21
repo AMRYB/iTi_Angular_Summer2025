@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>task</title>
+      <style>
+         body {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         height: 100vh;
+         background: #f5f5f5;
+         margin: 0;
+         }
+         .circle {
+         width: 230px;
+         height: 230px;
+         background-color: blue;
+         border-radius: 50%;
+         animation: bounce 2s infinite;
+         }
+         @keyframes bounce {
+         0%   { transform: translateY(0); }                  
+         50%  { transform: translateY(calc(50vh - 50px)); }  
+         100% { transform: translateY(0); }
+         }
+      </style>
+   </head>
+   <body>
+      <div class="circle"></div>
+   </body>
+</html>

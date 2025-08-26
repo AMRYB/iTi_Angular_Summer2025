@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>task</title>
+</head>
+<body>
+  <label>String: </label>
+  <input type="text" id="string">
+  <br><br>
+
+  <label>Letter: </label>
+  <input type="text" id="letter">
+  <br><br>
+
+  <button onclick="check()">check</button>
+
+  <p id="result"></p>
+
+  <script>
+    function check() {
+      let str = document.getElementById("string").value;
+      let letter = document.getElementById("letter").value;
+
+      let positions = [];
+      for (let i = 0; i < str.length; i++) {
+        if (str[i] === letter) {
+          positions.push(i);
+        }
+      }
+
+      if (positions.length > 0) {
+        document.getElementById("result").innerText =
+          `array: [${positions.join(", ")}]`;
+      }
+    }
+  </script>
+</body>
+</html>

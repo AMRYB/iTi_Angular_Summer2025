@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>task</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <form id="studentForm">
+    <label>Name:</label>
+    <input type="text" id="name" required>
+    <span id="nameErr"></span>
+    <br><br>
+
+    <label>Age:</label>
+    <input type="number" id="age" required>
+    <span id="ageErr"></span>
+    <br><br>
+
+    <label>Email:</label>
+    <input type="text" id="email" required>
+    <span id="emailErr"></span>
+    <br><br>
+
+    <label>Password:</label>
+    <input type="password" id="password" required>
+    <span id="passwordErr"></span>
+    <br><br>
+
+    <button type="submit">Add</button>
+  </form>
+
+  <h2>Students</h2>
+  <table border="1" id="studentsTable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    const form = document.getElementById('studentForm');
+    const tableBody = document.querySelector('#studentsTable tbody');
+    const STORAGE_KEY = "students";
+
+    function loadStudents() {
+      return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+    }
+
+    function saveStudents(list) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+    }
+
+    function renderTable() {
+      const students = loadStudents();
+      tableBody.innerHTML = "";
+      students.forEach((s, index) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${s.name}</td>
+          <td>${s.age}</td>
+          <td>${s.email}</td>
+          <td>${s.password}</td>
+          <td><button onclick="deleteStudent(${index})">Delete</button></td>
+        `;
+        tableBody.appendChild(row);
+      });
+    }
+
+    function deleteStudent(index) {
+      const students = loadStudents();
+      students.splice(index, 1);
+      saveStudents(students);
+      renderTable();
+    }
+
+    function validate(name, age, email, password) {
+      let ok = true;
+
+      document.getElementById("nameErr").innerText = "";
+      document.getElementById("ageErr").innerText = "";
+      document.getElementById("emailErr").innerText = "";
+      document.getElementById("passwordErr").innerText = "";
+
+      if (name.trim().length < 3) {
+        document.getElementById("nameErr").innerText = "Name must be at least 3 characters";
+        ok = false;
+      }
+      if (Number(age) <= 18) {
+        document.getElementById("ageErr").innerText = "Age must be greater than 18";
+        ok = false;
+      }
+      const emailRe = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+      if (!emailRe.test(email)) {
+        document.getElementById("emailErr").innerText = "Invalid email format";
+        ok = false;
+      }
+      if (password.length < 5 || !/[A-Z]/.test(password) || !/[a-z]/.test(password) || !/[0-9]/.test(password)) {
+        document.getElementById("passwordErr").innerText = "Password must have uppercase, lowercase, number, min length 5";
+        ok = false;
+      }
+
+      return ok;
+    }
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value;
+      const age = document.getElementById("age").value;
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      if (!validate(name, age, email, password)) return;
+
+      const students = loadStudents();
+      students.push({ name, age, email, password });
+      saveStudents(students);
+      renderTable();
+      form.reset();
+    });
+
+    renderTable();
+  </script>
+</body>
+</html>

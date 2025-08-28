@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function calculateAverage(...nums) {
+        const sum = nums.reduce((a, b) => a + b, 0);
+        return sum / nums.length;
+        }
+
+        console.log(calculateAverage(10, 20, 30)); 
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+   </head>
+   <body>
+      <script>
+         const students = [
+           { name: 'Alice', score: 85 },
+           { name: 'Bob', score: 95 },
+           { name: 'Charlie', score: 45 },
+           { name: 'David', score: 60 },
+           { name: 'Eve', score: 100 }
+         ];
+         
+         const passingStudents = students
+           .filter(s => s.score >= 60)
+           .map(s => s.name);
+         
+         console.log(passingStudents);
+         
+         const allAbove50 = students.every(s => s.score > 50);
+         console.log(allAbove50); 
+         
+         const hasPerfectScore = students.some(s => s.score === 100);
+         console.log(hasPerfectScore);            
+      </script>
+   </body>
+</html>

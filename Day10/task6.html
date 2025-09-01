@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+   </head>
+   <body>
+      <script>
+         function* letters() {
+           yield* "abc";
+         }
+         
+         function* numbers() {
+           yield 1; yield 2; yield 3;
+         }
+         
+         function* lettersThenNumbers() {
+           yield* letters();
+           yield* numbers();
+         }
+         
+         function* numbersThenLetters() {
+           yield* numbers();
+           yield* letters();
+         }
+         
+         console.log([...lettersThenNumbers()]);
+         console.log([...numbersThenLetters()]);      
+      </script>
+   </body>
+</html>

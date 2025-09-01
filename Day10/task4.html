@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+   </head>
+   <body>
+      <script>
+         const bag = {
+         apples: 3,
+         oranges: 5,
+         bananas: 2,
+         [Symbol.iterator]() {
+         const entries = Object.entries(this);
+         let i = 0;
+         return {
+         next() {
+         if (i < entries.length) {
+           const [k, v] = entries[i++];
+           return { value: [k, v], done: false };
+         }
+         return { done: true };
+         }
+         };
+         }
+         };
+         
+         for (const [k, v] of bag) {
+         console.log(k, v);
+         }
+      </script>
+   </body>
+</html>

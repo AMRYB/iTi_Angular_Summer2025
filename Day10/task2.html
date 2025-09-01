@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+   </head>
+   <body>
+      <script>
+         const common = (a, b) => {
+         const setB = new Set(b);
+         return [...new Set(a)].filter(x => setB.has(x));
+         };
+         
+         console.log(common([1,2,2,3,4], [2,2,4,6]));
+         console.log(common(["a","b","b","c"], ["b","d","a"]));
+      </script>
+   </body>
+</html>

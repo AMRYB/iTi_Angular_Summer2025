@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    class Employee {
+      #salary = 0;
+
+      setSalary(amount) {
+        amount = Number(amount);
+        if (amount <= 0) throw new Error("Salary must be positive.");
+        this.#salary = amount;
+      }
+
+      getSalary() {
+        return this.#salary;
+      }
+    }
+
+    const emp = new Employee();
+    emp.setSalary(3000);
+    console.log("Employee salary:", emp.getSalary());
+  </script>
+</body>
+</html>

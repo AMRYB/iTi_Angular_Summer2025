@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    class Product {
+      #name;
+      #quantity;
+      #price;
+
+      constructor(name, price, quantity = 0) {
+        this.#name = String(name);
+        this.#price = Number(price);
+        this.#quantity = Number(quantity);
+        if (this.#price < 0) throw new Error("Price cannot be negative.");
+        if (!Number.isInteger(this.#quantity) || this.#quantity < 0) throw new Error("Quantity must be a non-negative integer.");
+      }
+
+      addStock(quantity) {
+        if (!Number.isInteger(quantity) || quantity <= 0) throw new Error("Quantity must be positive.");
+        this.#quantity += quantity;
+        return this.#quantity;
+      }
+
+      sell(quantity) {
+        if (!Number.isInteger(quantity) || quantity <= 0) throw new Error("Quantity must be positive.");
+        if (quantity > this.#quantity) throw new Error("Not enough stock.");
+        this.#quantity -= quantity;
+        return this.#quantity;
+      }
+
+      getDetails() {
+        return { name: this.#name, price: this.#price, quantity: this.#quantity };
+      }
+    }
+
+    const p = new Product("USB Cable", 10, 5);
+    p.addStock(3);
+    p.sell(2);
+    console.log(p.getDetails());
+  </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    class BankAccount {
+      constructor(accountNumber, initialBalance = 0) {
+        let _accountNumber = String(accountNumber);
+        let _balance = Number(initialBalance);
+
+        this.getAccountDetails = () => ({ accountNumber: _accountNumber, balance: _balance });
+
+        this.deposit = (amount) => {
+          amount = Number(amount);
+          if (amount <= 0) throw new Error("Deposit amount must be positive.");
+          _balance += amount;
+          return _balance;
+        };
+
+        this.withdraw = (amount) => {
+          amount = Number(amount);
+          if (amount <= 0) throw new Error("Withdrawal amount must be positive.");
+          if (amount > _balance) throw new Error("Insufficient funds.");
+          _balance -= amount;
+          return _balance;
+        };
+      }
+
+      displayBalance() {
+        const { balance } = this.getAccountDetails();
+        console.log(`Current balance: ${balance.toFixed(2)}`);
+      }
+    }
+
+    const acc = new BankAccount("ACC-me", 100);
+    acc.deposit(50);
+    acc.withdraw(30);
+    acc.displayBalance();
+  </script>
+</body>
+</html>

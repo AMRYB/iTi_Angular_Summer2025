@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f8f9fa;
+    }
+    nav {
+        background-color: #343a40;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    nav a {
+      color: antiquewhite;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    nav a:hover {
+      color: #000;
+    }
+    main {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 20px;
+    }
+    .card {
+      width: 23%;
+      background-color: antiquewhite;
+      margin: 10px;
+      padding: 10px;
+    }
+    .card h2 {
+      font-size: 16px;
+    }
+    .card p {
+      font-size: 14px;
+      color: #333;
+    }
+    .image-card {
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a onclick="getNews('tesla')">Tesla</a>
+    <a onclick="getNews('business')">Business</a>
+    <a onclick="getNews('apple')">Apple</a>
+  </nav>
+  <main id="newsGrid"></main>
+  <script>
+    const API_KEY = "baa16a1461e74c5e81dd38168a29e0ab";
+    function buildURL(type) {
+      if (type === "tesla") {
+        return `https://newsapi.org/v2/everything?q=tesla&sortBy=publishedAt&apiKey=${API_KEY}`;
+      }
+      if (type === "business") {
+        return `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=${API_KEY}`;
+      }
+      if (type === "apple") {
+        return `https://newsapi.org/v2/everything?q=apple&sortBy=popularity&apiKey=${API_KEY}`;
+      }
+    }
+    async function getNews(type) {
+      const url = buildURL(type);
+      const grid = document.getElementById("newsGrid");
+      grid.innerHTML = "<p>Loading...</p>";
+      try {
+        const res = await fetch(url);
+        const data = await res.json();
+        if (data.status !== "ok") throw new Error(data.message);
+        renderNews(data.articles);
+      } catch (err) {
+        grid.innerHTML = `<p style="color:red">Error: ${err.message}</p>`;
+      }
+    }
+    function renderNews(articles) {
+      const grid = document.getElementById("newsGrid");
+      grid.innerHTML = "";
+      const placeholder = "https://via.placeholder.com/300x200?text=No+Image";
+      articles.forEach(article => {
+        const card = document.createElement("div");
+        card.className = "card";
+        const h2 = document.createElement("h2");
+        h2.textContent = article.title || "No title";
+        const p = document.createElement("p");
+        p.textContent = article.description || "";
+        const img = document.createElement("img");
+        img.className = "image-card";
+        img.src = article.urlToImage || placeholder;
+        card.append(h2, p, img);
+        grid.append(card);
+      });
+    }
+    getNews("tesla");
+  </script>
+</body>
+</html>

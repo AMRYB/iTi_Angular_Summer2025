@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>  
+  <input type="text" id="countryInput">
+  <button onclick="getCountry()">Search</button>
+  
+  <div id="result"></div>
+  
+  <script>
+    function getCountry() {
+      const country = document.getElementById("countryInput").value.trim()
+      const url = `https://restcountries.com/v3.1/name/${country}`
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById("result").innerHTML = `
+            <h3>${data[0].name.common}</h3>
+            <p>Capital ${data[0].capital}</p>
+            <p>Population ${data[0].population}</p>
+          `
+        })
+        .catch(error => {
+          document.getElementById("result").innerHTML = "Country not found"
+        })
+    }
+  </script>
+</body>
+</html>

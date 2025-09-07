@@ -1,0 +1,195 @@
+.loader-wrapper {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #fff;
+	z-index: 9999;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+* {
+	text-decoration: none !important;
+}
+
+.loader-circle {
+	width: 50px;
+	height: 50px;
+	border: 6px solid #ccc;
+	border-top-color: #007bff;
+	border-radius: 50%;
+	animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+.hero {
+	background: url("http://www.engage.veented.com/construction/wp-content/uploads/sites/19/2017/04/shutterstock_93376255.jpg") center/cover no-repeat;
+	height: 90vh;
+	color: white;
+	display: flex;
+	align-items: center;
+}
+
+.icon-box {
+	text-align: center;
+	padding: 2rem 1rem;
+}
+
+.icon-box i {
+	font-size: 2rem;
+	margin-bottom: 1rem;
+	color: #007bff;
+}
+
+.position-relative {
+	transition: all 0.3s ease;
+}
+
+.image-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.7);
+	opacity: 0;
+	transition: all 0.3s ease;
+}
+
+.overlay-icon {
+	transition: all 0.3s ease;
+	transform: translateY(10px);
+}
+
+.image-number {
+	position: absolute;
+	bottom: 15px;
+	right: 15px;
+	width: 40px;
+	height: 40px;
+	background-color: #222;
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: bold;
+	z-index: 2;
+}
+
+.card-body {
+	border: 1px solid #eee;
+	border-top: none;
+}
+
+.card-title {
+	font-size: 1rem;
+	font-weight: 600;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+
+.card-text {
+	font-size: 0.8rem;
+}
+
+.position-relative:hover .image-overlay {
+	opacity: 1;
+}
+
+.position-relative:hover .overlay-icon {
+	transform: translateY(0);
+}
+
+.position-relative:hover img {
+	transform: scale(1.05);
+	transition: all 0.4s ease;
+}
+
+.hero-carousel .carousel-item {
+	height: 90vh;
+	min-height: 500px;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	position: relative;
+}
+
+.hero-carousel .hero-overlay {
+	position: absolute;
+	inset: 0;
+	background: rgba(0, 0, 0, .45);
+}
+
+.hero-carousel .carousel-caption {
+	bottom: auto;
+	top: 50%;
+	transform: translateY(-50%);
+	text-align: left;
+	left: 0;
+	right: 0;
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+@media (min-width: 992px) {
+	.hero-carousel .carousel-caption {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+.hero-carousel .display-4 {
+	font-weight: 700;
+}
+
+.hero-carousel .lead {
+	max-width: 700px;
+}
+
+.hero-carousel .carousel-indicators [data-bs-target] {
+	width: 36px;
+	height: 4px;
+	border-radius: 0;
+}
+
+
+.hero-carousel .btn-light {
+	background-color: #fff;
+	color: #000;
+	border: none;
+}
+
+.hero-carousel .btn-light:hover {
+	background-color: #f8f9fa;
+	color: #000;
+}
+
+.hero-carousel .btn-primary {
+	background-color: #fff;
+	color: #000;
+	border: none;
+}
+
+.hero-carousel .btn-primary:hover {
+	background-color: #f8f9fa;
+	color: #000;
+}
+
+.hero-carousel .btn-outline-light {
+	background-color: transparent;
+	color: #fff;
+	border: 2px solid #fff;
+}
+
+.hero-carousel .btn-outline-light:hover {
+	background-color: #fff;
+	color: #000;
+}

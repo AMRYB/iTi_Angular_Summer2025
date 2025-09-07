@@ -1,0 +1,82 @@
+body {
+	background: #fff;
+	color: #333;
+}
+
+.brand {
+	letter-spacing: .5px;
+	font-weight: 700;
+	font-size: 1.25rem
+}
+
+.brand .m {
+	color: #2eaac6;
+}
+
+.brand .rest {
+	color: #6a7282;
+}
+
+.hero {
+	position: relative;
+	height: 400px;
+	background: url('https://i.insider.com/570bda0152bcd026008bbfb3?width=800&format=jpeg&auto=webp') center/cover no-repeat;
+	border-radius: 0;
+	overflow: hidden;
+}
+
+.hero .badge-card {
+	position: absolute;
+	right: 1rem;
+	bottom: 1rem;
+	background: rgba(0, 0, 0, .75);
+	color: #fff;
+	padding: 1.25rem 1.5rem;
+	max-width: 340px;
+}
+
+.btn-primary {
+	background-color: #2eaac6 !important;
+	border-color: #2eaac6 !important;
+	color: #fff !important;
+}
+
+.btn-primary:hover {
+	background-color: #2490a9 !important;
+	border-color: #2490a9 !important;
+	color: #fff !important;
+}
+
+.feature-cta {
+	display: block;
+	width: 100%;
+	background: #2eaac6;
+	border: 1px solid #2eaac6;
+	color: #fff !important;
+	text-align: center;
+	padding: .9rem 1rem;
+	font-weight: 600;
+	text-decoration: none;
+}
+
+.feature-cta:hover {
+	background: #2490a9;
+	border-color: #2490a9;
+	color: #fff !important;
+}
+
+.section-title {
+	font-weight: 700
+}
+
+.feature-box i {
+	font-size: 2rem;
+	margin: .75rem 0
+}
+
+.work-card img {
+	border-radius: 0 !important;
+	display: block;
+	width: 100%;
+	height: auto;
+}

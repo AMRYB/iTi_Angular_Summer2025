@@ -1,0 +1,17 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-12 text-center">
+      <h1 class="page-title text-primary mb-1">{{ title }}</h1>
+      
+    </div>
+  </div>
+
+  <app-track-selector (trackSelected)="onTrackSelected($event)"></app-track-selector>
+
+  <app-student-form (studentAdded)="onStudentAdded($event)"></app-student-form>
+
+  <app-student-table 
+    [students]="students" 
+    (deleteStudent)="onStudentDeleted($event)">
+  </app-student-table>
+</div>

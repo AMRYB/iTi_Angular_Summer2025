@@ -1,0 +1,16 @@
+h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.select-dropdown {
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+}
+
+.track-info {
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+}

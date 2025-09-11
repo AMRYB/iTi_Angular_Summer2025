@@ -1,0 +1,19 @@
+<div class="row justify-content-center mb-3">
+  <div class="col-md-6">
+    <select id="trackSelect" class="form-select" (change)="onTrackChange($event)">
+      <option value="" selected>Select Your Track</option>
+      <option value="DotNet">DotNet</option>
+      <option value="Mearn">Mearn</option>
+      <option value="Testing">Testing</option>
+      <option value="Social Media">Social Media</option>
+    </select>
+  </div>
+  
+</div>
+
+<div class="row justify-content-center" *ngIf="selectedTrack">
+  <div class="col-md-8 text-center">
+    <h5 class="mb-3">{{ selectedTrack }} available at: {{ getTrackAvailability() }}</h5>
+  </div>
+  
+</div>
